@@ -33,10 +33,12 @@ public class BasePage {
     /**
      * Inicializa o WebDriver (Chrome) utilizando WebDriverManager para portabilidade.
      */
-    
+
     public static void setup() {
+        //
         // --- INICIALIZAÇÃO IMPLÍCITA (RECOMENDADA) ---
         // Configura e baixa o driver automaticamente (Abordagem via internet)
+
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
 
@@ -44,6 +46,7 @@ public class BasePage {
         /*
         // Para usar a chamada explícita de uma pasta Windows:
         // System.setProperty("webdriver.chrome.driver", "C:\\caminho\\para\\o\\chromedriver.exe");
+           System.setProperty("webdriver.edge.driver", "C:\\Users\\joaoc\\Drivers\\edgedriver_win64\\msedgedriver.exe");
         // driver = new ChromeDriver();
         */
 
@@ -59,6 +62,15 @@ public class BasePage {
         if (driver != null) {
             driver.quit();
         }
+    }
+
+    /**
+     * Navega para a URL especificada.
+     * Este método é fundamental e pertence à BasePage.
+     * @param url A URL a ser aberta.
+     */
+    public void openUrl(String url) {
+        driver.get(url);
     }
 
     /**

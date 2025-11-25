@@ -1,7 +1,5 @@
 package steps;
 
-
-
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.pt.Dado;
@@ -24,8 +22,8 @@ import static org.hamcrest.Matchers.*;
 public class DocuSignSteps {
 
     private DocuSignRecipientPage docuSignPage;
-    private CsvDataReader dataReader;
-    private final String DOCUSIGN_URL = "https://powerforms.docusign.net/75ad6ab6-2f7e-4fcb-a9ac-54f9aeefde40?env=na2&acct=68f26f24-91ee-4170-9a61-75e6ad8cebab&accountId=68f26f24-91ee-4170-9a61-75e6ad8cebab";
+    private CsvDataReader         dataReader;
+    private final String          DOCUSIGN_URL = "https://powerforms.docusign.net/75ad6ab6-2f7e-4fcb-a9ac-54f9aeefde40?env=na2&acct=68f26f24-91ee-4170-9a61-75e6ad8cebab&accountId=68f26f24-91ee-4170-9a61-75e6ad8cebab";
 
     /**
      * Hook do Cucumber que é executado antes de cada cenário.
@@ -35,7 +33,10 @@ public class DocuSignSteps {
     public void setupTest() {
         BasePage.setup();
         docuSignPage = new DocuSignRecipientPage(BasePage.driver);
+
+        //
         // Inicializa o leitor de dados para ser usado nos passos
+
         dataReader = new CsvDataReader();
     }
 
@@ -43,6 +44,7 @@ public class DocuSignSteps {
      * Hook do Cucumber que é executado depois de cada cenário.
      * Fecha o WebDriver.
      */
+
     @After
     public void teardownTest() {
         BasePage.teardown();
@@ -52,7 +54,10 @@ public class DocuSignSteps {
     public void queAURLDoDocuSignPowerFormEstaAberta() {
 
         docuSignPage.openUrl(DOCUSIGN_URL);
+
+        //
         // Usando Hamcrest para verificar se a URL foi carregada corretamente (Princípio OCP do SOLID - aberta para extensão, fechada para modificação)
+
         Assert.assertThat("A URL do DocuSign não foi aberta corretamente.",
                 BasePage.driver.getCurrentUrl(),
                 containsString("docusign.net"));
