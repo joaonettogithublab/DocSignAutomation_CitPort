@@ -15,21 +15,27 @@ public class CsvDataReader {
 
     // Lista de listas de strings para armazenar todos os dados lidos
     private List<String[]> dataRows;
+
     // O cabeçalho da planilha
     private String[] header;
+
     // Caminho do arquivo de dados (assumindo que o arquivo está na raiz do projeto)
     private static final String DATA_FILE_PATH = "CargaDados_Docsign.xlsx - Sheet1.csv";
 
     public CsvDataReader() {
         try {
+
             // Inicializa o leitor de CSV
             CSVReader reader = new CSVReader(new FileReader(DATA_FILE_PATH));
+
             // Lê todas as linhas do arquivo de uma vez
             List<String[]> allRows = reader.readAll();
 
             if (!allRows.isEmpty()) {
+
                 // A primeira linha é o cabeçalho
                 this.header = allRows.get(0);
+
                 // As linhas de dados (começando da segunda linha)
                 this.dataRows = allRows.subList(1, allRows.size());
             } else {

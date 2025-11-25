@@ -18,8 +18,10 @@ public class DocuSignRecipientPage extends BasePage {
 
     // NOME E EMAIL DO FORNECEDOR
     private final By fornecedorNomeField = By.cssSelector("input[name='fornecedorNome']");
+
     // Path alternativo (Exemplo com XPath): //input[@placeholder='fornecedorNome']
     private final By fornecedorEmailField = By.cssSelector("input[name='fornecedorEmail']");
+
     // Path alternativo (Exemplo com XPath): //input[@placeholder='fornecedorEmail']
 
     // NOME E EMAIL DO OBSERVADOR

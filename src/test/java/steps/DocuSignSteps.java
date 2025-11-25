@@ -1,17 +1,21 @@
 package steps;
 
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
-import cucumber.api.java.pt.Dado;
-import cucumber.api.java.pt.Entao;
-import cucumber.api.java.pt.Quando;
+
+
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.pt.Dado;
+import io.cucumber.java.pt.Entao;
+import io.cucumber.java.pt.Quando;
+
+import org.junit.Assert;
 import pages.BasePage;
 import pages.DocuSignRecipientPage;
 import utils.CsvDataReader;
 
 import java.util.List;
 import java.util.Map;
-import org.junit.Assert;
+
 import static org.hamcrest.Matchers.*;
 
 /**
@@ -46,6 +50,7 @@ public class DocuSignSteps {
 
     @Dado("^que a URL do DocuSign PowerForm está aberta$")
     public void queAURLDoDocuSignPowerFormEstaAberta() {
+
         docuSignPage.openUrl(DOCUSIGN_URL);
         // Usando Hamcrest para verificar se a URL foi carregada corretamente (Princípio OCP do SOLID - aberta para extensão, fechada para modificação)
         Assert.assertThat("A URL do DocuSign não foi aberta corretamente.",

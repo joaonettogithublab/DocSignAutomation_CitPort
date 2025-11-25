@@ -14,11 +14,14 @@ import java.time.Duration;
  * Classe Base para todas as Page Objects, implementando o Princípio da Responsabilidade Única (SRP)
  * para gerenciamento do WebDriver e métodos de interação básicos.
  */
+
 public class BasePage {
 
     public static WebDriver driver;
+
     // Constante para o tempo de espera explícita
     private static final Duration WAIT_TIMEOUT = Duration.ofSeconds(10);
+
     // Tempo de espera solicitado pelo usuário para conferência.
     protected static final long USER_CONFERENCE_WAIT = 5000;
 
@@ -30,6 +33,7 @@ public class BasePage {
     /**
      * Inicializa o WebDriver (Chrome) utilizando WebDriverManager para portabilidade.
      */
+    
     public static void setup() {
         // --- INICIALIZAÇÃO IMPLÍCITA (RECOMENDADA) ---
         // Configura e baixa o driver automaticamente (Abordagem via internet)
