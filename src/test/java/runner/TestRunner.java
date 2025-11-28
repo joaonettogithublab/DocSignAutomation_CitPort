@@ -1,7 +1,7 @@
 package runner;
 
-import io.cucumber.junit.CucumberOptions; // Novo import
-import io.cucumber.junit.Cucumber; // Novo import
+import io.cucumber.junit.CucumberOptions;
+import io.cucumber.junit.Cucumber;
 import org.junit.runner.RunWith;
 
 /**
@@ -10,20 +10,24 @@ import org.junit.runner.RunWith;
  */
 
 @RunWith(Cucumber.class)
-@CucumberOptions( // Atualizado para io.cucumber.junit.CucumberOptions
-        features = "src/test/resources/docsign.feature", // Caminho para os arquivos .feature
-        glue = {"steps"}, // Caminho para as Step Definitions
+@CucumberOptions(
+        features = "src/test/resources/DocuSignFeature.feature",
+        glue = {"steps"},
 
-        tags = "@DocuSign, @CargaDeDados", // Tags de Cenários a serem executados
-        plugin = { // Formato 'format' foi substituído por 'plugin' em versões mais novas
-                "pretty", // Output formatado no console
-                "html:target/cucumber-reports/html", // Relatório HTML do Cucumber
-                "json:target/cucumber-reports/cucumber.json", // Relatório JSON para ferramentas externas
-                "junit:target/cucumber-reports/junit.xml" // Relatório JUnit (para Maven Reports/Surefire)
+        //
+        // CORREÇÃO: Usando o operador lógico 'and' para combinar as tags.
+        // Se desejar executar se tiver QUALQUER UMA das tags, use 'or'.
+
+        tags = "@DocuSign and @CargaDeDados",
+        plugin = {
+                "pretty",
+                "html:target/cucumber-reports/html",
+                "json:target/cucumber-reports/cucumber.json",
+                "junit:target/cucumber-reports/junit.xml"
         },
-        monochrome = true // Remove caracteres estranhos do console (Windows)
+        monochrome = true
 )
-class TestRunner {
+public class TestRunner { // Alterado para 'public class' (Boa Prática)
         // Esta classe fica vazia. As anotações acima configuram a execução.
         // O JUnit irá rodar esta classe, que por sua vez, irá rodar o Cucumber.
 }

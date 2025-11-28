@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -35,22 +36,32 @@ public class BasePage {
      */
 
     public static void setup() {
+
         //
         // --- INICIALIZAÇÃO IMPLÍCITA (RECOMENDADA) ---
         // Configura e baixa o driver automaticamente (Abordagem via internet)
+        //
+        //WebDriverManager.chromedriver().setup();
+        //WebDriverManager.edgedriver().setup();
+        //driver = new ChromeDriver();
+        //driver = new EdgeDriver();
 
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-
+        //
         // --- INICIALIZAÇÃO EXPLÍCITA (SE NECESSÁRIO) ---
         /*
         // Para usar a chamada explícita de uma pasta Windows:
         // System.setProperty("webdriver.chrome.driver", "C:\\caminho\\para\\o\\chromedriver.exe");
-           System.setProperty("webdriver.edge.driver", "C:\\Users\\joaoc\\Drivers\\edgedriver_win64\\msedgedriver.exe");
+        // System.setProperty("webdriver.edge.driver", "C:\\Users\\joaoc\\Drivers\\edgedriver_win64\\msedgedriver.exe");
         // driver = new ChromeDriver();
+        // driver = new EdgeDriver();
         */
 
+        System.setProperty("webdriver.edge.driver", "C:\\Users\\joaoc\\Drivers\\edgedriver_win64\\msedgedriver.exe");
+        driver = new EdgeDriver();
+
+        //
         // Define a espera implícita
+
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.manage().window().maximize();
     }
