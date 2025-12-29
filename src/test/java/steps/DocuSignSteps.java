@@ -50,8 +50,9 @@ public class DocuSignSteps {
         BasePage.teardown();
     }
 
-    @Dado("^que a URL do DocuSign PowerForm está aberta$")
-    public void queAURLDoDocuSignPowerFormEstaAberta() {
+
+    @Dado("que  a URL do DocuSign PowerForm está aberta")
+    public void que_a_url_do_docu_sign_power_form_está_aberta() {
 
         docuSignPage.openUrl(DOCUSIGN_URL);
 

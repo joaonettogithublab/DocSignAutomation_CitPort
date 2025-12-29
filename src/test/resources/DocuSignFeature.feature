@@ -2,12 +2,11 @@
 
 Funcionalidade: Automação do DocuSign PowerForm
 
-Como um Analista de Testes Sênior
-Eu quero automatizar o preenchimento do formulário DocuSign
-Para garantir que os dados da planilha sejam carregados corretamente para todos os destinatários.
+Como um Gestor de Contas da Ci&t
+Eu quero executar automaticamente o preenchimento do formulário DocuSign
+Para otimizar de forma massiva e automática o prrenchimento das solictações de acesso á Porto
 
 @Docsign @CargaDeDados
-
 Cenario: Preencher o formulário DocuSign com dados da planilha e iniciar a assinatura
 
   Dado      que  a URL do DocuSign PowerForm está aberta
